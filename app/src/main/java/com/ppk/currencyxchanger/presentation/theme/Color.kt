@@ -1,4 +1,4 @@
-package com.ppk.currencyxchanger.ui.theme
+package com.ppk.currencyxchanger.presentation.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.ppk.currencyxchanger.ui.theme
+package com.ppk.currencyxchanger.presentation.theme
 
 import android.app.Activity
 import android.os.Build
