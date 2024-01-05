@@ -6,6 +6,7 @@ plugins {
     id("com.google.devtools.ksp")
     id("dagger.hilt.android.plugin")
     id("org.jlleitschuh.gradle.ktlint")
+    id ("kotlin-parcelize")
 }
 
 
@@ -25,6 +26,8 @@ android {
             useSupportLibrary = true
         }
         buildConfigField("String","BASE_URL","\"http://api.currencylayer.com/\"")
+
+        buildConfigField("String","ACCESS_KEY","\"fa24dfeebea34badd0f0ab47f8babf8a\"")
     }
 
     buildTypes {
@@ -60,6 +63,8 @@ android {
 
 dependencies {
 
+    //Since this is a simple project and had less than 24 hours of coding time, I skip buildSrc module
+    //and instead directly added dependencies. which is not good practice for large scale projects
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("androidx.lifecycle:lifecycle-runtime-ktx:2.6.2")
     implementation("androidx.activity:activity-compose:1.8.0")
@@ -77,7 +82,7 @@ dependencies {
     debugImplementation("androidx.compose.ui:ui-test-manifest")
 
     //hilt
-    implementation("com.google.dagger:hilt-android:2.48")
+    implementation("com.google.dagger:hilt-android:2.49")
     ksp("com.google.dagger:hilt-android-compiler:2.48")
     ksp("androidx.hilt:hilt-compiler:1.2.0-alpha01")
     implementation("androidx.hilt:hilt-navigation-compose:1.2.0-alpha01")
@@ -86,5 +91,15 @@ dependencies {
     //retrofit
     implementation ("com.squareup.retrofit2:retrofit:2.9.0")
     implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
+    //okhttp3
+    implementation("com.squareup.okhttp3:okhttp:4.11.0")
+    implementation("com.squareup.okhttp3:logging-interceptor:4.8.1")
+
+    //room
+    implementation ("androidx.room:room-runtime:2.6.1")
+    implementation ("androidx.room:room-ktx:2.6.1")
+    annotationProcessor ("androidx.room:room-compiler:2.6.1")
+    ksp ("androidx.room:room-compiler:2.6.1")
+
 
 }

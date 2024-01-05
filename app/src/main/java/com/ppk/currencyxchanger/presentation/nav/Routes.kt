@@ -9,16 +9,16 @@ import com.ppk.currencyxchanger.presentation.view.Home
 @Composable
 internal fun NavGraph() {
 
-        val navController = rememberNavController()
+    val navController = rememberNavController()
 
-        NavHost(navController = navController, startDestination = Routes.Home.route) {
-            composable(Routes.Home.route) {
-                Home(navController = navController)
-            }
-
+    NavHost(navController = navController, startDestination = Routes.Home.route) {
+        composable(Routes.Home.route) {
+            Home(navController = navController)
         }
 
     }
+
+}
 
 sealed class Routes(val route: String) {
     object Home : Routes("barcodeScanner")
